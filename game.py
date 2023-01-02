@@ -5,6 +5,7 @@ import time
 
 from pygame.locals import *
 
+
 fps = 25
 window_w, window_h = 600, 500
 block, cup_h, cup_w = 20, 20, 10
@@ -130,6 +131,7 @@ def main():
     big_font = pg.font.SysFont('verdana', 45)
     pg.display.set_caption('Тетрис Lite')
     showText('Тетрис Lite')
+    showText('Тетрис Lite112')
     while True:  # начинаем игру
         runTetris()
         pauseScreen()
@@ -262,7 +264,7 @@ def showText(text):
     display_surf.blit(titleSurf, titleRect)
     pressKeySurf, pressKeyRect = txtObjects('Нажмите любую клавишу для продолжения', basic_font,
                                             title_color)
-    pressKeyRect.center = (int(window_w / 2), int(window_h / 2) + 100)
+    pressKeyRect.center = (int(window_w /2 ), int(window_h / 2) + 100)
     display_surf.blit(pressKeySurf, pressKeyRect)
     while checkKeys() == None:
         pg.display.update()
@@ -281,7 +283,7 @@ def quitGame():
 def calcSpeed(points):
     # вычисляет уровень
     level = int(points / 10) + 1
-    fall_speed = 0.27 - (level * 0.02)
+    fall_speed = 0.25 - (level * 0.02)
     return level, fall_speed
 
 
@@ -405,6 +407,18 @@ def drawInfo(points, level):
     escbRect = escbSurf.get_rect()
     escbRect.topleft = (window_w - 550, 450)
     display_surf.blit(escbSurf, escbRect)
+    escbSurf = basic_font.render('Поворот: Стрелка вверх', True, info_color)
+    escbRect = escbSurf.get_rect()
+    escbRect.topleft = (window_w - 600, 300)
+    display_surf.blit(escbSurf, escbRect)
+    escbSurf = basic_font.render('Влево: Стрелка влево', True, info_color)
+    escbRect = escbSurf.get_rect()
+    escbRect.topleft = (window_w - 600, 325)
+    display_surf.blit(escbSurf, escbRect)
+    escbSurf = basic_font.render('Вправо: Стрелка вправо', True, info_color)
+    escbRect = escbSurf.get_rect()
+    escbRect.topleft = (window_w - 600, 350)
+    display_surf.blit(escbSurf, escbRect)
 
 
 def drawFig(fig, pixelx=None, pixely=None):
@@ -425,8 +439,8 @@ def drawnextFig(fig):  # превью следующей фигуры
     display_surf.blit(nextSurf, nextRect)
     drawFig(fig, pixelx=window_w - 150, pixely=230)
 
-# Спизжено и минимально подправоено
-#Подправить спрайты, добавить анимацию, разделить на строки, сделать из мишанины 1 класс, добавить в основную хрень
+# Спизжено и м подправоено, но нужно больше правок
+#Подправить спрайты, добавить анимацию, разделить на строки, сделать из мишанины 1 класс, добавить в основную хрень(последние 2 по приколу больше)
 
 
 if __name__ == '__main__':
