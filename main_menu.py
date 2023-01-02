@@ -7,7 +7,7 @@ from PyQt5 import uic
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from in_game_window import Game_window
+from to_lvl import To_lvl
 
 
 class Main_Window(QMainWindow):
@@ -22,12 +22,11 @@ class Main_Window(QMainWindow):
 
     def open_new_game(self):
         shahid.show()
-        QMainWindow.close(self)
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Main_Window()
     ex.show()
-    shahid = Game_window()
+    shahid = To_lvl()
     sys.exit(app.exec_())
