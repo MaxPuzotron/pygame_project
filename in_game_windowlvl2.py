@@ -10,16 +10,15 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 
-class Game_window(QMainWindow):
+class Game_window_lvl2(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("ui files/in_game_windowlvl1.ui", self)
+        uic.loadUi("ui files/in_game_window_lvl2.ui", self)
         self.textEdit.setReadOnly(True)
         self.choise1_text.setReadOnly(True)
         self.choise2_text.setReadOnly(True)
         self.choise1.clicked.connect(self.get_new_text)
-        self.choise2.clicked.connect(self.get_new_text)
-        self.initial_text.clicked.connect(self.get_initial_text)
+        self.choise2.clicked.connect(self.get_initial_text)
         global i
         global a
         global b
@@ -33,7 +32,7 @@ class Game_window(QMainWindow):
         print(b)
 
     def get_text(self):
-        f = open(f'texts for lvl1/text0', 'r')
+        f = open(f'texts for lvl2/text0', 'r')
         with f:
             data = f.read()
             self.textEdit.setText(data)
@@ -87,31 +86,9 @@ class Game_window(QMainWindow):
             i -= 1
         a = a + str(0)
 
-    def health(self):
-        con = sqlite3.connect("parametres.db")
-        cur = con.cursor()
-        result = cur.execute(f"""UPDATE parametres 
-                SET value = '90'
-                WHERE name = health
-                            """).fetchall()
-        print(result)
-        con.commit()
-        self.health_bar.setText(result)
-
-
-    def money(self):
-        con = sqlite3.connect("parametres.db")
-        cur = con.cursor()
-        a = self.money_bar.toPlainText()
-        result = cur.execute(f"""UPDATE parametres 
-                SET value = '20'
-                WHERE name = money
-                            """)
-        con.commit()
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Game_window()
+    ex = Game_window_lvl2()
     ex.show()
     sys.exit(app.exec_())

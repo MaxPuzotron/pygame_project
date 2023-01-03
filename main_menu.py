@@ -7,6 +7,7 @@ from PyQt5 import uic
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from in_game_windowlvl2 import Game_window_lvl2
 from in_game_window_lvl1 import Game_window
 
 
@@ -37,7 +38,8 @@ class To_lvl(QMainWindow):
         QMainWindow.close(self)
 
     def to_lvl2(self):
-        pass
+        kashmir.show()
+        QMainWindow.close(self)
 
 
 if __name__ == '__main__':
@@ -45,5 +47,6 @@ if __name__ == '__main__':
     ex = Main_Window()
     ex.show()
     shahid = To_lvl()
+    kashmir = Game_window_lvl2()
     alah = Game_window()
     sys.exit(app.exec_())
