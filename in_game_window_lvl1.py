@@ -2,7 +2,6 @@ import PyQt5
 import sqlite3
 import sys
 import os
-import game
 
 from PyQt5 import uic
 from PyQt5.QtGui import *
@@ -17,13 +16,17 @@ class Game_window(QMainWindow):
         self.textEdit.setReadOnly(True)
         self.choise1_text.setReadOnly(True)
         self.choise2_text.setReadOnly(True)
-        self.choise1.clicked.connect(self.get_new_text)
-        self.choise2.clicked.connect(self.get_new_text)
-        self.initial_text.clicked.connect(self.get_initial_text)
+        self.choise1.clicked.connect(self.get_text_to_left)
+        self.choise2.clicked.connect(self.get_text_to_right)
+        self.initial_text.clicked.connect(self.get_text)
+        global right_button
+        global left_button
         global i
         global a
         global b
         global c
+        left_button = 0
+        right_button = 0
         i = 0
         b = 'subtext2' + str(i)
         c = 'subtext1' + str(i)
@@ -73,6 +76,18 @@ class Game_window(QMainWindow):
         print(a)
         print(b)
         print(c)
+
+    def get_text_to_right(self):
+        self.get_new_text()
+        global right_button
+        right_button = 1
+        print(right_button)
+
+    def get_text_to_left(self):
+        self.get_new_text()
+        global left_button
+        left_button = 2
+        print(left_button)
 
     def get_initial_text(self):
         global i

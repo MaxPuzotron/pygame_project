@@ -37,10 +37,10 @@ def main():
         screen = pygame.display.set_mode(winsize)
         pygame.display.set_caption('Ping Pong')
         screen.fill(black)
-        paddle = pygame.image.load('paddle.bmp').convert()
-        paddleerase = pygame.image.load('erase.bmp').convert()
-        ball = pygame.image.load('1.png').convert()
-        ballerase = pygame.image.load('fireeraser.png').convert()
+        paddle = pygame.image.load('123/paddle.bmp').convert()
+        paddleerase = pygame.image.load('123/erase.bmp').convert()
+        ball = pygame.image.load('123/1.png').convert()
+        ballerase = pygame.image.load('123/fireeraser.png').convert()
 
         while gameover == true:
 
