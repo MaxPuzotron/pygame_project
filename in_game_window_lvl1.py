@@ -12,7 +12,7 @@ from PyQt5.QtCore import *
 class Game_window(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("ui files/in_game_windowlvl1.ui", self)
+        uic.loadUi("ui files/in_game_window_lvl1.ui", self)
         self.textEdit.setReadOnly(True)
         self.choise1_text.setReadOnly(True)
         self.choise2_text.setReadOnly(True)
