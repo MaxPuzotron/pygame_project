@@ -19,6 +19,7 @@ class Game_window(QMainWindow):
         self.choise1.clicked.connect(self.get_text_to_left)
         self.choise2.clicked.connect(self.get_text_to_right)
         self.initial_text.clicked.connect(self.get_text)
+        self.update_score()
         global right_button
         global left_button
         global i
@@ -81,23 +82,37 @@ class Game_window(QMainWindow):
 
     def get_text_to_right(self):
         self.get_new_text()
-        self.proverka_right()
+        #self.proverka_right()
         global right_button
         right_button = 1
         print(right_button)
 
     def proverka_right(self):
-        pass
+        if 1 == 1:
+            self.add_money()
+        if 0 == 0:
+            self.sub_money()
+        if 2 == 2:
+            self.add_health()
+        if 3 == 3:
+            self.sub_health()
 
     def get_text_to_left(self):
         self.get_new_text()
-        self.proverka_left()
+        #self.proverka_left()
         global left_button
         left_button = 2
         print(left_button)
 
     def proverka_left(self):
-        pass
+        if 1 == 1:
+            self.add_money()
+        if 0 == 0:
+            self.sub_money()
+        if 2 == 2:
+            self.add_health()
+        if 3 == 3:
+            self.sub_health()
 
     def get_initial_text(self):
         global i
@@ -111,6 +126,21 @@ class Game_window(QMainWindow):
         if i < 1:
             i -= 1
         a = a + str(0)
+
+    def add_money(self):
+        pass
+
+    def sub_money(self):
+        pass
+
+    def add_healph(self):
+        pass
+
+    def sub_health(self):
+        pass
+
+    def update_score(self):
+        pass
 
     def health(self):
         con = sqlite3.connect("parametres.db")
