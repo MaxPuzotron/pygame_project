@@ -41,6 +41,8 @@ class Game_window(QMainWindow):
             data = f.read()
             self.textEdit.setText(data)
             self.textEdit.setReadOnly(True)
+        self.choise2_text.setText('')
+        self.choise1_text.setText('')
 
     def get_new_text(self):
         global i
@@ -79,15 +81,23 @@ class Game_window(QMainWindow):
 
     def get_text_to_right(self):
         self.get_new_text()
+        self.proverka_right()
         global right_button
         right_button = 1
         print(right_button)
 
+    def proverka_right(self):
+        pass
+
     def get_text_to_left(self):
         self.get_new_text()
+        self.proverka_left()
         global left_button
         left_button = 2
         print(left_button)
+
+    def proverka_left(self):
+        pass
 
     def get_initial_text(self):
         global i
@@ -112,7 +122,6 @@ class Game_window(QMainWindow):
         print(result)
         con.commit()
         self.health_bar.setText(result)
-
 
     def money(self):
         con = sqlite3.connect("parametres.db")
