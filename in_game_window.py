@@ -99,20 +99,18 @@ class Game_window(QMainWindow):
 
     def get_text_to_left(self):
         self.get_new_text()
-        #self.proverka_left()
         global left_button
         left_button = 2
         print(left_button)
+        self.proverka_left()
 
     def proverka_left(self):
-        if 1 == 1:
-            self.add_money()
-        if 0 == 0:
-            self.sub_money()
-        if 2 == 2:
-            self.add_health()
-        if 3 == 3:
-            self.sub_health()
+        global left_button
+        f = open(f'texts for lvl1/subtext10', 'r')
+        zxc = f.read()
+        if left_button == 2:
+            if 'qwe' in zxc:
+                print('Allah Akbar')
 
     def get_initial_text(self):
         global i
