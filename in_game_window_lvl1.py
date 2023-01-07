@@ -251,15 +251,16 @@ def gay_provoslavny_sex():
             clock.tick(20)
 
 
-class Game_window_lvl2(QMainWindow):
+class Game_window(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("ui files/in_game_window_lvl2.ui", self)
+        uic.loadUi("ui files/in_game_window_lvl1.ui", self)
         self.textEdit.setReadOnly(True)
         self.choise1_text.setReadOnly(True)
         self.choise2_text.setReadOnly(True)
         self.choise1.clicked.connect(self.get_text_to_left)
         self.choise2.clicked.connect(self.get_text_to_right)
+        self.initial_text.clicked.connect(self.get_text)
         self.game_butoon.clicked.connect(self.game)
         self.update_score()
         global right_button
@@ -280,6 +281,15 @@ class Game_window_lvl2(QMainWindow):
 
     def game(self):
         gay_provoslavny_sex()
+
+    def get_text(self):
+        f = open(f'texts for lvl1/text0', 'r')
+        with f:
+            data = f.read()
+            self.textEdit.setText(data)
+            self.textEdit.setReadOnly(True)
+        self.choise2_text.setText('')
+        self.choise1_text.setText('')
 
     def get_new_text(self):
         global i
@@ -335,20 +345,18 @@ class Game_window_lvl2(QMainWindow):
 
     def get_text_to_left(self):
         self.get_new_text()
-        #self.proverka_left()
         global left_button
         left_button = 2
         print(left_button)
+        self.proverka_left()
 
     def proverka_left(self):
-        if 1 == 1:
-            self.add_money()
-        if 0 == 0:
-            self.sub_money()
-        if 2 == 2:
-            self.add_health()
-        if 3 == 3:
-            self.sub_health()
+        global left_button
+        f = open(f'texts for lvl1/subtext10', 'r')
+        zxc = f.read()
+        if left_button == 2:
+            if 'qwe' in zxc:
+                print('Allah Akbar')
 
     def get_initial_text(self):
         global i
@@ -402,6 +410,6 @@ class Game_window_lvl2(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Game_window_lvl2()
+    ex = Game_window()
     ex.show()
     sys.exit(app.exec_())

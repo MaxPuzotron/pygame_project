@@ -152,6 +152,19 @@
      <string>Счет</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="game_butoon">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>370</y>
+      <width>121</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Играть</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
