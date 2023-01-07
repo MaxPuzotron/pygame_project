@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
 
-class Game_window(QMainWindow):
+class Game_window_lvl2(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("ui files/in_game_window_lvl2.ui", self)
@@ -156,6 +156,6 @@ class Game_window(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Game_window()
+    ex = Game_window_lvl2()
     ex.show()
     sys.exit(app.exec_())
